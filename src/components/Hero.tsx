@@ -1,5 +1,6 @@
 import { ArrowRight, Play } from 'lucide-react';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 export default function Hero() {
   const [email, setEmail] = useState('');
@@ -118,9 +119,27 @@ export default function Hero() {
           <span>Trusted by <strong className="text-slate-300">10,000+</strong> developers</span>
         </div>
 
-        {/* Hero card / dashboard preview */}
-        <div className="relative mx-auto max-w-4xl">
-          <div className="glow-card rounded-2xl overflow-hidden border border-white/8 bg-[#111220]">
+        {/* Photo + Dashboard preview side by side */}
+        <div className="relative mx-auto max-w-4xl flex flex-col lg:flex-row gap-6 items-stretch">
+          {/* User Photo Card */}
+          <div className="glow-card rounded-2xl overflow-hidden border border-white/8 bg-[#111220] flex flex-col items-center justify-center p-6 lg:w-56 shrink-0">
+            <div className="w-28 h-28 rounded-full overflow-hidden border-4 mb-4" style={{ borderColor: 'rgba(97,114,243,0.5)' }}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/800px-Gatto_europeo4.jpg"
+                alt="Profile photo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="text-white font-semibold text-sm">Your Name</p>
+            <p className="text-slate-400 text-xs mt-1">Founder & CEO</p>
+            <div className="mt-3 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-emerald-400 text-xs">Available</span>
+            </div>
+          </div>
+
+          {/* Dashboard preview */}
+          <div className="glow-card rounded-2xl overflow-hidden border border-white/8 bg-[#111220] flex-1">
             {/* Window bar */}
             <div className="flex items-center gap-2 px-4 py-3 bg-[#181928] border-b border-white/5">
               <span className="w-3 h-3 rounded-full bg-red-400/70" />
@@ -187,5 +206,3 @@ export default function Hero() {
     </section>
   );
 }
-
-import clsx from 'clsx';
